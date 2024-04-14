@@ -1,7 +1,7 @@
 import { registerSlashCommand } from "../../slash-commands.js";
-import { VariableViewer } from './src/Notes.js';
+import { Notes } from './src/Notes.js';
 
-const app = new VariableViewer();
+const app = new Notes();
 
 registerSlashCommand('notes', ()=>app.toggle(), [], 'show / hide the Notes panel', true, true);
 
