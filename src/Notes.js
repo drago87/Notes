@@ -116,58 +116,7 @@ export class Notes {
                     this.content = content;
                     content.classList.add('vv--content');
                     content.style.fontSize = `${this.fontSize}em`;
-                    /*
-                    [['Local', false], ['Global', true]].forEach(([panelTitle,global])=>{
-                        const panel = document.createElement('div'); {
-                            panel.classList.add('vv--entry');
-                            panel.classList.add('inline-drawer');
-                            const title = document.createElement('div'); {
-                                title.classList.add('vv--title');
-                                const toggleWrapper = document.createElement('div'); {
-                                    toggleWrapper.classList.add('inline-drawer-toggle');
-                                    const toggle = document.createElement('div'); {
-                                        toggle.classList.add('inline-drawer-icon');
-                                        toggle.classList.add('fa-solid');
-                                        toggle.classList.add('fa-circle-chevron-up');
-                                        toggle.classList.add('down');
-                                        toggleWrapper.append(toggle);
-                                    }
-                                    title.append(toggleWrapper);
-                                }
-                                const lbl = document.createElement('div'); {
-                                    lbl.classList.add('vv--label');
-                                    lbl.textContent = String(panelTitle);
-                                    title.append(lbl);
-                                }
-                                const add = document.createElement('div'); {
-                                    add.classList.add('vv--add');
-                                    add.textContent = '➕';
-                                    add.title = 'Add new variable';
-                                    add.addEventListener('click', async()=>{
-                                        const name = await callPopup('Variable Name', 'input', '', { okButton:'OK', rows:1, wide:false, large:false });
-                                        if (!name) {
-                                            return;
-                                        }
-                                        const val = await callPopup('Variable Value', 'input', '', { okButton:'OK', rows:1, wide:false, large:false });
-                                        if (val === null || val === undefined) {
-                                            return;
-                                        }
-                                        executeSlashCommands(`/set${global ? 'global' : ''}var key="${name}" ${val}`);
-                                    });
-                                    title.append(add);
-                                }
-                                panel.append(title);
-                            }
-                            const vars = document.createElement('div'); {
-                                this[`${global ? 'global' : 'local'}Panel`] = vars;
-                                vars.classList.add('vv--vars');
-                                vars.classList.add('inline-drawer-content');
-                                vars.style.display = 'block';
-                                panel.append(vars);
-                            }
-                            this.content.append(panel);
-                        }
-                    });*/
+                
                     root.append(content);
                 }
             }
@@ -183,19 +132,8 @@ export class Notes {
         if (this.isRunning) return;
         this.isRunning = true;
         while (this.isShown) {
-            /*
-            const localVars = chat_metadata.variables ?? {};
-            const globalVars = extension_settings?.variables?.global ?? {};
-            const lv = JSON.stringify(localVars);
-            const gv = JSON.stringify(globalVars);
-            if (lv != this.oldLocalVars || gv != this.oldGlobalVars) {
-                this.oldLocalVars = lv;
-                this.oldGlobalVars = gv;
-                console.log('[STVV]', localVars, globalVars);
-                await this.updateVars(this.localVarList, localVars, this.localPanel, false);
-                await this.updateVars(this.globalVarList, globalVars, this.globalPanel, true);
-            */
-            }
+            
+            
             await delay(200);
         }
         this.isRunning = false;
