@@ -178,4 +178,26 @@ export class Notes {
 
         this.update();
     }
+
+    async update() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        while (this.isShown) {
+            /*
+            const localVars = chat_metadata.variables ?? {};
+            const globalVars = extension_settings?.variables?.global ?? {};
+            const lv = JSON.stringify(localVars);
+            const gv = JSON.stringify(globalVars);
+            if (lv != this.oldLocalVars || gv != this.oldGlobalVars) {
+                this.oldLocalVars = lv;
+                this.oldGlobalVars = gv;
+                console.log('[STVV]', localVars, globalVars);
+                await this.updateVars(this.localVarList, localVars, this.localPanel, false);
+                await this.updateVars(this.globalVarList, globalVars, this.globalPanel, true);
+            */
+            }
+            await delay(200);
+        }
+        this.isRunning = false;
+    }
 }
